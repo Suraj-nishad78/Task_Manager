@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { AppContext } from "../context/AppContext";
 
 const Task_Audit = () => {
   const [audits, setAudit] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 5; // show 5 audits per page
+
+  const { userId } = useContext(AppContext);
 
   // === Extract formatted date ===
   const extractDate = (isd) => {
@@ -52,8 +55,16 @@ const Task_Audit = () => {
   };
 
   useEffect(() => {
-    fetchAllAudit();
+    if (userId) {
+      fetchAllAudit();
+    }
   }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAllAudit();
+    }
+  }, [userId]);
 
   // === Pagination Logic ===
   const totalPages = Math.ceil(audits.length / pageSize);

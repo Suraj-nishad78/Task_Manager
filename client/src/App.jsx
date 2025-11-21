@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { AppContext } from "./context/AppContext";
-import axios from "axios"
+import axios from "axios";
 import Signin from "./components/Signin";
 import Home from "./pages/Home";
 import Create_Task from "./components/Create_Task";
@@ -42,8 +42,16 @@ function App() {
     const id = localStorage.getItem("userId");
     setUserId(id);
     // localStorage.clear();
-    fetchTask();
+    if (userId) {
+      fetchTask();
+    }
   }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchTask();
+    }
+  }, [userId]);
 
   const contextData = {
     userId,
@@ -54,15 +62,15 @@ function App() {
     setShowTaskForm,
     tasks,
     setTasks,
-    fetchTask
+    fetchTask,
   };
 
   return (
     <>
       <AppContext.Provider value={contextData}>
         {login && <Signin></Signin>}
-        <Home ></Home>
-        {showTaskForm && <Create_Task ></Create_Task>}
+        <Home></Home>
+        {showTaskForm && <Create_Task></Create_Task>}
         <ToastContainer
           position="top-right"
           autoClose={5000}
