@@ -1,4 +1,4 @@
-# Full-Stack Project
+# Task Manager Project
 
 ## 🚀 Overview
 **Task Manager** is a simple app that lets users create, update, delete, and view tasks with a clean UI. It includes login authentication, task history tracking (audit logs), search, and pagination, making task management easy and organized.
@@ -53,7 +53,7 @@ project-root/
 ## ⚙️ Installation & Setup
 Clone the repository:
 ```bash
-git clone https://github.com/Suraj-nishad78/Nail-IB
+git clone https://github.com/Suraj-nishad78/Task_Manager
 cd Task_Manager
 ```
 
@@ -108,6 +108,7 @@ PRIVATE_KEY=your_secret_key
 
 ## 📸 Screenshots
 ![alt text](./site_image/image1.png)
+---
 ![alt text](./site_image/image2.png)
 ---
 
